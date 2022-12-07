@@ -1,0 +1,15 @@
+# This file describes a Fastly Compute@Edge package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
+language = "rust"
+manifest_version = 2
+name = "fastly-rust-test"
+service_id = ""
+
+[scripts]
+  build = "cargo build --bin fastly-rust-test --release --target wasm32-wasi --color always"
+
+[local_server]
+  [local_server.backends]
+    [local_server.backends.origin]
+      url = "http://127.0.0.1:3000/"
